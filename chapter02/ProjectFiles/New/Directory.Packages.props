@@ -1,0 +1,6 @@
+<Project>
+  <ItemGroup>
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="8.0.17" />
+    <PackageVersion Include="Newtonsoft.Json" Version="12.0.0" />
+  </ItemGroup>
+</Project>
