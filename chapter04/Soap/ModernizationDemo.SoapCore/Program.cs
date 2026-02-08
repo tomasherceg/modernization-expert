@@ -11,8 +11,7 @@ var app = builder.Build();
 
 app.UseRouting();
 
-var endpoints = app as IEndpointRouteBuilder;
-endpoints.UseSoapEndpoint<Products>("/Products.asmx", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
-endpoints.UseSoapEndpoint<Orders>("/Orders.asmx", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+app.UseSoapEndpoint<Products>("/Products.asmx", new SoapEncoderOptions());
+app.UseSoapEndpoint<Orders>("/Orders.asmx", new SoapEncoderOptions());
 
 app.Run();
