@@ -127,7 +127,7 @@ namespace ModernizationDemo.WebApiTests
             {
                 BaseUrl = environment switch
                 {
-                    TestEnvironment.WebApi => "https://localhost:44398/",
+                    TestEnvironment.WebApi => "https://localhost:55600/",
                     TestEnvironment.WebApiCore => "https://localhost:7085/",
                     _ => throw new NotSupportedException()
                 }
