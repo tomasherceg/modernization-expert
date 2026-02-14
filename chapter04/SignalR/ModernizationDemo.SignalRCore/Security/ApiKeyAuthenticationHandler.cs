@@ -3,14 +3,14 @@ using System.Text.Encodings.Web;
 using Microsoft.AspNetCore.Authentication;
 using Microsoft.Extensions.Options;
 
-namespace ModernizationDemo.WebApiCore.Security
+namespace ModernizationDemo.SignalRCore.Security
 {
-    public class ApiKeyAuthenticationHandler(
-        IOptionsMonitor<ApiKeyAuthenticationOptions> options, 
-        ILoggerFactory logger, 
-        UrlEncoder encoder
-    ) : AuthenticationHandler<ApiKeyAuthenticationOptions>(options, logger, encoder)
+    public class ApiKeyAuthenticationHandler : AuthenticationHandler<ApiKeyAuthenticationOptions>
     {
+        public ApiKeyAuthenticationHandler(IOptionsMonitor<ApiKeyAuthenticationOptions> options, ILoggerFactory logger, UrlEncoder encoder) : base(options, logger, encoder)
+        {
+        }
+
         protected override async Task<AuthenticateResult> HandleAuthenticateAsync()
         {
             // if we have the X-Api-Key header, validate it and set the current context identity
