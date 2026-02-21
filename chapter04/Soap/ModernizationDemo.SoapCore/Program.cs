@@ -11,7 +11,12 @@ var app = builder.Build();
 
 app.UseRouting();
 
-app.UseSoapEndpoint<Products>("/Products.asmx", new SoapEncoderOptions());
-app.UseSoapEndpoint<Orders>("/Orders.asmx", new SoapEncoderOptions());
+#pragma warning disable ASP0014
+app.UseEndpoints(endpoints =>
+{
+    endpoints.UseSoapEndpoint<Products>("/Products.asmx", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+    endpoints.UseSoapEndpoint<Orders>("/Orders.asmx", new SoapEncoderOptions(), SoapSerializer.XmlSerializer);
+});
+#pragma warning restore ASP0014
 
 app.Run();
